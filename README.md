@@ -3,6 +3,8 @@
 ## Introduction
 The **PRF10**, produced by Simoco/Philips, is a discontinued radio repeater that can operate at VHF or UHF frequencies depending on the model.
 
+https://www.radiomuseum.org/r/philips_radio_repeater_prf10_prf1050.html
+
 <img src="https://github.com/user-attachments/assets/4aa4dcfe-7574-46e8-ac96-3b84d2e3d602" width="50%">
 
 This GitHub repository documents the restoration process for **PRF1050** repeater that was once used for emergency communications to amateur radio frequencies.
