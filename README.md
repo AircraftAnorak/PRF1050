@@ -51,6 +51,10 @@ Since this repeater once operated outside of the amateur band, it would need to 
 
 I am not to sure how I figured this out but I believe on one forum someone mentioned you can program it by flashing to a chip which holds all the channel data. This is something which I could attempt with my experience in ICs and after a bit of scavenging on the board, I came across the 24C16 flash chip which holds this data.
 
+<img src="https://github.com/user-attachments/assets/7820ffe2-3cb3-4a2f-a779-2fd028cfe08a" width="50%">
+
+*This chip is located on the **Control** board*
+
 <img src="https://github.com/user-attachments/assets/0e29a5c6-e7ae-4b4b-838d-ee3ddae2c18d" width="30%">
 
 Thankfully it uses I2C which is very familiar to me so in my excitement, I straight away ended up soldering some jumpers on the SDA and SCL pins to see if I could dump the chip 
