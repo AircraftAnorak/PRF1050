@@ -13,6 +13,11 @@ I would like to state that in no way am I an expert on this repeater system, but
 
 ***
 
+##### Table of Contents  
+[Internals](#internals)  
+[Power Issue](#12v-power-issue)  
+<a name="headers"/>
+
 ## Internals
 
 <img src="https://github.com/user-attachments/assets/448bc7d6-9afe-4a40-8477-10b34b66ff43" width="50%">
@@ -39,3 +44,37 @@ I would like to state that in no way am I an expert on this repeater system, but
 For my model, all blocks were working apart from the **CIU** which was not getting the required 12V to power the board, which is most likely not having the DC connector on the rear of the unit. It was discovered however that this was not required and 12V can be easily tapped into from the motherboard itself, with a jumper from this source soldered onto a regulator in the CIU.
 
 <img src="https://github.com/user-attachments/assets/8b15f2d6-cc94-4c7c-a95a-2067f64d38cb" width="50%">
+
+## Control Board and Programming
+
+Since this repeater once operated outside of the amateur band, it would need to be reprogrammed to suitable frequencies for testing, later to allocated frequencies for operation. For this, I found almost no information online apart from many people saying you need a programmer unit made for this repeater (something I do not have), so felt a bit lost and stuck on how to progress.
+
+I am not to sure how I figured this out but I believe on one forum someone mentioned you can program it by flashing to a chip which holds all the channel data. This is something which I could attempt with my experience in ICs and after a bit of scavenging on the board, I came across the 24C16 flash chip which holds this data.
+
+<img src="https://github.com/user-attachments/assets/0e29a5c6-e7ae-4b4b-838d-ee3ddae2c18d" width="30%">
+
+Thankfully it uses I2C which is very familiar to me so in my excitement, I straight away ended up soldering some jumpers on the SDA and SCL pins to see if I could dump the chip 
+
+_(**NOTE**: Do not do this as it will not work... I will explain why)_
+
+<img src="https://github.com/user-attachments/assets/fb952add-f123-4214-8970-688a4d270800" width="50%">
+
+*Connecting the repeater with jumper wires to an IC programmer*
+
+What I forgot to remember is that I2C lines are usually paired with other ICs (Duh!!) so when trying to read the chip, I was in fact trying to read multiple so my HEX dump was returning nothing,
+
+To get around this I ended up desoldering the whole chip and then soldering jumpers to isolate it 
+
+
+
+
+
+24C16 Desoldered             |  Jumpers attached to VCC, GND, SDA and SCL
+:-------------------------:|:-------------------------:
+![20240423_115343-min](https://github.com/user-attachments/assets/ae7da1a6-4a5f-48f7-86cf-d66221edd0bc)  |  ![20240423_114845-min](https://github.com/user-attachments/assets/f8276294-2eac-42b6-ac5d-5478463b0f14)
+
+_(**NOTE**: This is also a bad idea, again I am a radio nerd that was too excited to dump the memory)_
+
+So this worked! When running it through the IC programmer, reading the chip gave a promising HEX dump that was consistent every time I read it instead of noise like before.
+
+<img src="https://github.com/user-attachments/assets/a141a8e2-257e-410a-b538-ac185fc951e5" width="50%">
