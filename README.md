@@ -16,6 +16,7 @@ I would like to state that in no way am I an expert on this repeater system, but
 ##### Table of Contents  
 [Internals](#internals)  
 [Power Issue](#12v-power-issue)  
+[Programming Channels](#1programming-channels)  
 <a name="headers"/>
 
 ## Internals
@@ -77,8 +78,16 @@ To get around this I ended up desoldering the whole chip and then soldering jump
 :-------------------------:|:-------------------------:
 ![20240423_115343-min](https://github.com/user-attachments/assets/ae7da1a6-4a5f-48f7-86cf-d66221edd0bc)  |  ![20240423_114845-min](https://github.com/user-attachments/assets/f8276294-2eac-42b6-ac5d-5478463b0f14)
 
-_(**NOTE**: This is also a bad idea, again I am a radio nerd that was too excited to dump the memory)_
+_(**NOTE**: This is also a bad idea, again I am a radio nerd that was too excited to dump the memory - during the process of this I accidentally snapped off one of the legs which was thankfully able to be fixed - in hindsight it would be best to have solder points directly on the board which is what I did eventually)_
 
 So this worked! When running it through the IC programmer, reading the chip gave a promising HEX dump that was consistent every time I read it instead of noise like before.
 
 <img src="https://github.com/user-attachments/assets/a141a8e2-257e-410a-b538-ac185fc951e5" width="50%">
+
+### Programming Channels
+
+This HEX dump can then be run through an amazing program called [QFM1000](https://github.com/sardylan/qfm1000), which made programming the repeater a straightforward job without having to inspect the .h file manually.
+
+<img src="https://github.com/user-attachments/assets/1692603f-d49c-4411-866f-77ccae5e0fb0" width="50%">
+
+Here you can see the previous frequencies the repeater operated on - these can be changed to our values which we desire
