@@ -72,13 +72,15 @@ To get around this I ended up desoldering the whole chip and then soldering jump
 
 
 
-
-
 24C16 Desoldered             |  Jumpers attached to VCC, GND, SDA and SCL
 :-------------------------:|:-------------------------:
 ![20240423_115343-min](https://github.com/user-attachments/assets/ae7da1a6-4a5f-48f7-86cf-d66221edd0bc)  |  ![20240423_114845-min](https://github.com/user-attachments/assets/f8276294-2eac-42b6-ac5d-5478463b0f14)
 
 _(**NOTE**: This is also a bad idea, again I am a radio nerd that was too excited to dump the memory - during the process of this I accidentally snapped off one of the legs which was thankfully able to be fixed - in hindsight it would be best to have solder points directly on the board which is what I did eventually)_
+
+<img src="https://github.com/user-attachments/assets/219d619a-0e1e-405c-b6c1-36706f01ee1c" width="50%">
+
+You can see here cut traces and soldered jumpers to be able to program the chip while seated in the board.
 
 So this worked! When running it through the IC programmer, reading the chip gave a promising HEX dump that was consistent every time I read it instead of noise like before.
 
